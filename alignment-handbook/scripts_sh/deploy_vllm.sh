@@ -35,7 +35,7 @@ echo "Running on $CHUNKS GPUs: ${GPULIST[@]}"
 # TODO: test the speed of 1 gpu and multiple gpus
 
 python -m vllm.entrypoints.api_server \
---model alignment-handbook/outs/internlm2-20b_mathgenie \
+--model alignment-handbook/outs/internlm2-20b_StepControlled \
 --trust-remote-code \
 --seed 42 \
 --tensor-parallel-size 1 \

@@ -12,15 +12,13 @@ The paper is at `paper/SCDPO.pdf`.
 
 | Model | Checkpoint | GSM8k | MATH  |
 | ----- |------| ---- |-------|
-| MathGenie/InternLM2-SFT-SCDPO | 🤗 <a href="https://huggingface.co/MathGenie/InternLM2-SFT-SCDPO" target="_blank">HF Link</a>| **88.5**  |  **58.1**	|
-| MathGenie/Mistral-7B-Ours-SFT | 🤗 <a href="https://huggingface.co/MathGenie/Mistral-7B-Ours-SFT" target="_blank">HF Link</a>| **76.8**  |  **43.2**	|
-| MathGenie/Mistral-7B-Ours-SFT-SCDPO | 🤗 <a href="https://huggingface.co/MathGenie/Mistral-7B-Ours-SFT-SCDPO" target="_blank">HF Link</a>| **80.1**  |  **47.7**	|
+| StepControlled/InternLM2-SFT-SCDPO | 🤗 <a href="https://huggingface.co/StepControlled/InternLM-20B-SCDPO" target="_blank">HF Link</a>| **88.5**  |  **58.1**	|
 
 ### Datasets
 
 | Dataset | Link |
 | ----- |------|
-| MathGenie/SCDPO-Data-Mistral-Ours | 🤗 <a href="https://huggingface.co/datasets/MathGenie/SCDPO-Data-Mistral-Ours" target="_blank">HF Link</a>| 
+| StepControlled/SCDPO-Data-Mistral-Ours | 🤗 <a href="https://huggingface.co/datasets/StepControlled/SCDPO-Data-Mistral-Ours" target="_blank">HF Link</a>| 
 
 ### DPO and SCDPO Data Generation
 
@@ -56,7 +54,7 @@ python -m pip install flash-attn --no-build-isolation
 
 ### SFT
 
-To run SFT, let's take training Mistral-7B-Ours-SFT for example. First download the dataset MathGenie/SCDPO-Data-Mistral-Ours from 🤗 <a href="https://huggingface.co/datasets/MathGenie/SCDPO-Data-Mistral-Ours" target="_blank">HF Link</a>. Then, modify the path to the pretrained model and dataset in `alignment-handbook/recipes/mistral-7b-lce/sft/config_full.yaml`. Execute the command:
+To run SFT, let's take training Mistral-7B-Ours-SFT for example. First download the dataset StepControlled/SCDPO-Data-Mistral-Ours from 🤗 <a href="https://huggingface.co/datasets/StepControlled/SCDPO-Data-Mistral-Ours" target="_blank">HF Link</a>. Then, modify the path to the pretrained model and dataset in `alignment-handbook/recipes/mistral-7b-lce/sft/config_full.yaml`. Execute the command:
 
 ```
 bash alignment-handbook/recipes/mistral-7b-lce/sft/sft_4gpu.sh alignment-handbook/recipes/mistral-7b-lce/sft/config_full.yaml
@@ -66,7 +64,7 @@ This finetunes the model on 4 GPUs for 3 epochs.
 
 ### DPO
 
-To run DPO, first download the dataset MathGenie/DPO-Data-Mistral-Ours from 🤗 <a href="https://huggingface.co/datasets/MathGenie/DPO-Data-Mistral-Ours" target="_blank">HF Link</a>. You can download [MathGenie/Mistral-7B-Ours-SFT](https://huggingface.co/MathGenie/Mistral-7B-Ours-SFT) or use the SFT model you trained before. Then, modify the path to the pretrained model and dataset in `alignment-handbook/recipes/mistral-7b-lce/dpo/config_full.yaml`. Execute the command:
+To run DPO, first download the dataset StepControlled/DPO-Data-Mistral-Ours from 🤗 <a href="https://huggingface.co/datasets/StepControlled/DPO-Data-Mistral-Ours" target="_blank">HF Link</a>. You can download [StepControlled/Mistral-7B-Ours-SFT](https://huggingface.co/StepControlled/Mistral-7B-Ours-SFT) or use the SFT model you trained before. Then, modify the path to the pretrained model and dataset in `alignment-handbook/recipes/mistral-7b-lce/dpo/config_full.yaml`. Execute the command:
 
 ```
 bash alignment-handbook/recipes/mistral-7b-lce/dpo/dpo_4gpu.sh alignment-handbook/recipes/mistral-7b-lce/dpo/config_full.yaml
@@ -76,7 +74,7 @@ This finetunes the model on 4 GPUs for 2 epochs.
 
 ### SCDPO
 
-To run SCDPO, first download the dataset MathGenie/SCDPO-Data-Mistral-Ours from 🤗 <a href="https://huggingface.co/datasets/MathGenie/SCDPO-Data-Mistral-Ours" target="_blank">HF Link</a>. You can download [MathGenie/Mistral-7B-Ours-SFT](https://huggingface.co/MathGenie/Mistral-7B-Ours-SFT) or use the SFT model you trained before. Then, modify the path to the pretrained model and dataset in `alignment-handbook/recipes/mistral-7b-lce/dpo/config_full_sc.yaml`. Execute the command:
+To run SCDPO, first download the dataset StepControlled/SCDPO-Data-Mistral-Ours from 🤗 <a href="https://huggingface.co/datasets/StepControlled/SCDPO-Data-Mistral-Ours" target="_blank">HF Link</a>. You can download [StepControlled/Mistral-7B-Ours-SFT](https://huggingface.co/StepControlled/Mistral-7B-Ours-SFT) or use the SFT model you trained before. Then, modify the path to the pretrained model and dataset in `alignment-handbook/recipes/mistral-7b-lce/dpo/config_full_sc.yaml`. Execute the command:
 
 ```
 bash alignment-handbook/recipes/mistral-7b-lce/dpo/dpo_4gpu.sh alignment-handbook/recipes/mistral-7b-lce/dpo/config_full_sc.yaml
