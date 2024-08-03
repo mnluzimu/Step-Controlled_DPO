@@ -54,7 +54,7 @@ python -m pip install flash-attn --no-build-isolation
 
 ### SFT
 
-To run SFT, let's take training Mistral-7B-Ours-SFT for example. First download the dataset StepControlled/SCDPO-Data-Mistral-Ours from 🤗 <a href="https://huggingface.co/datasets/StepControlled/SCDPO-Data-Mistral-Ours" target="_blank">HF Link</a>. Then, modify the path to the pretrained model and dataset in `alignment-handbook/recipes/mistral-7b-lce/sft/config_full.yaml`. Execute the command:
+To run SFT, let's take training Mistral-7B-Ours-SFT for example. First download the dataset StepControlled/SCDPO-Data-Mistral-Ours from 🤗 <a href="https://huggingface.co/datasets/StepControlled/MATH-GSM8K-Tool-81K" target="_blank">HF Link</a>. Then, modify the path to the pretrained model and dataset in `alignment-handbook/recipes/mistral-7b-lce/sft/config_full.yaml`. Execute the command:
 
 ```
 bash alignment-handbook/recipes/mistral-7b-lce/sft/sft_4gpu.sh alignment-handbook/recipes/mistral-7b-lce/sft/config_full.yaml
